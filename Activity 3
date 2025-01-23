@@ -1,0 +1,67 @@
+import React, {useState} from 'react';
+import {Text, StyleSheet} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+
+const TextInANest = () => {
+  const [titleText, setTitleText] = useState("My Contributions to our SYARC2 system");
+  const bodyTextMain1 = 'Front '
+  const bodyTextMain2 = 'End: '
+  const bodyText = 'HTML\nCSS\nJavaScript\n\n';
+  const bodyTextMain3 = 'Backend: ';
+  const bodyTextMain4 = 'PHP\nMySQL\n\n';
+  const bodyTextMain5 = 'Goals:';
+  const bodyTextMain6 = 'Become a 10x developer';    
+  //\nBackend:\nGoals:\n \n\n\n';
+
+  const onPressTitle = () => {
+    setTitleText("AHHHHHH!");
+  };
+  
+  return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        
+        <Text style={styles.baseText}>
+          <Text style={styles.titleText} onPress={onPressTitle}>
+            {titleText}
+            {'\n'}
+            {'\n'}
+          </Text>
+          <Text numberOfLines={1} style={{color:'black'}}>{bodyTextMain1}</Text>
+          <Text numberOfLines={1} style={{color:'red'}}>{bodyTextMain2}</Text>
+          <Text numberOfLines={5}>{bodyText}</Text>
+          <Text numberOfLines={1} style={{color:'red'}}>{bodyTextMain3}</Text>
+          <Text numberOfLines={5} style={{color:'black'}}>{bodyTextMain4}</Text>
+          <Text numberOfLines={1} style={{color:'red'}}>{bodyTextMain5}</Text>
+          <Text numberOfLines={5} style={{color:'black'}}>{bodyTextMain6}</Text>
+        </Text>
+      </SafeAreaView>
+    </SafeAreaProvider>
+
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+
+  bodyTextMain1:{
+      color: 'red',
+  },
+
+  baseText: {
+    fontFamily: 'Verdana',
+     textAlign: 'center',
+     color: 'black',
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+     textAlign:'center',
+     color: 'black',
+  },
+});
+
+export default TextInANest;
+
